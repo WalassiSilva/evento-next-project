@@ -12,7 +12,7 @@ export default async function EventsPage({ params: { city } }: Props) {
   const events: TEvent[] = await response.json();
   return (
     <main className="flex flex-col items-center py-24 px-5 min-h-[110vh]">
-      <H1>
+      <H1 className="mb-12">
         {city === "all" && "All Events"}
         {city !== "all" &&
           `Events in ${city.charAt(0).toUpperCase() + city.slice(1)}`}

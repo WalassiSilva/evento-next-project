@@ -11,7 +11,7 @@ export default function EventCard({ event }: EventCardProps) {
       href={`/event/${event.slug}`}
       className="flex-1 basis-80 h-[380px] max-w-[500px]"
     >
-      <section className=" relative w-full h-full flex flex-col bg-white/[3%] rounded-xl overflow-hidden hover:scale-105 active:scale-[1.02] transition">
+      <section className=" relative w-full h-full flex flex-col bg-white/[3%] rounded-xl overflow-hidden state-effects">
         <Image
           src={event.imageUrl}
           alt={event.name}

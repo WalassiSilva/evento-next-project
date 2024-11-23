@@ -3,8 +3,8 @@ import Link from "next/link";
 import React from "react";
 import Logo from "./Logo";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
 import {motion} from "framer-motion";
+import { cn } from "@/lib/util";
 
 const routes = [
   {
@@ -27,7 +27,7 @@ export default function Header() {
           {routes.map((route) => (
             <li
               key={route.path}
-              className={clsx(
+              className={cn(
                 "relative flex items-center hover:text-white transition ",
                 {
                   "text-white": pathname === route.path,

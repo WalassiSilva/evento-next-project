@@ -1,7 +1,6 @@
-import React from 'react'
+import SkeletonCard from "@/components/skeleton-card";
+import React from "react";
 
 export default function Loading() {
-  return (
-    <div>loading events...</div>
-  )
+  return <SkeletonCard />;
 }

@@ -36,9 +36,9 @@ export default async function EventPage({ params }: EventPageProps) {
             alt={event.name}
             width={300}
             height={201}
-            className="rounded-xl border-2 border-white/50 object-cover"
+            className="rounded-xl border-2 border-white/50 object-cover mx-auto"
           />
-          <div className="relative flex flex-col">
+          <div className="relative flex flex-col items-center ">
             <p className="text-white/75">
               {new Date(event.date).toLocaleDateString("en-US", {
                 weekday: "long",
@@ -53,7 +53,7 @@ export default async function EventPage({ params }: EventPageProps) {
               Organized by <span className="italic">{event.organizerName}</span>
             </p>
             <button
-              className="mt-5 bg-white/20 bg-blur textlg capitalize w-[95vw] rounded-md border-white/10 border-2 py-2 focus:scale-105 state-effects
+              className="mt-5 bg-white/20 bg-blur textlg capitalize w-[80vw] rounded-md border-white/10 border-2 py-2 focus:scale-105 state-effects
               sm:w-full
               lg:mt-auto"
             >

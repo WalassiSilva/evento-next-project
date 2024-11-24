@@ -1,8 +1,8 @@
+import { PrismaClient } from "@prisma/client";
 import clsx from "clsx";
 import { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { TEvent } from "./types";
-import { BASE_URL } from "@/app/constants";
+import prisma from "./db";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -15,14 +15,23 @@ export function capitalize(string: string) {
 export async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
 export async function getEvents(city: string) {
-  const response = await fetch(`${BASE_URL}/events?city=${city}`);
-  const events: TEvent[] = await response.json();
+  const events = await prisma.eventoEvent.findMany({
+    where: {
+      city: city === "all" ? undefined : capitalize(city),
+    },
+    orderBy: {
+      date: "asc",}
+  });
   return events;
 }
 
-export async function getEvent(slug: string){
-  const response = await fetch(`${BASE_URL}/events/${slug}`);
-  const event: TEvent = await response.json();
+export async function getEvent(slug: string) {
+  const event = await prisma.eventoEvent.findUnique({
+    where: {
+      slug: capitalize(slug),
+    },
+  });
   return event;
 }

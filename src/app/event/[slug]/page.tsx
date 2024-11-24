@@ -1,4 +1,4 @@
-import { BASE_URL } from "@/app/constants";
+
 import H1 from "@/components/H1";
 import { getEvent } from "@/lib/util";
 import { Metadata } from "next";
